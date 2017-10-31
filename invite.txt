@@ -1,0 +1,7 @@
+https://discordapp.com/api/oauth2/authorize?client_id=373477442079162369&scope=bot&permissions=1
+
+
+373471271859519498
+https://discordapp.com/api/oauth2/authorize?client_id=373471271859519498&scope=bot&permissions=1
+ 374584814503723008
+ https://discordapp.com/api/oauth2/authorize?client_id=374584814503723008&scope=bot&permissions=1
