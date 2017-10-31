@@ -28,7 +28,59 @@ async def on_ready():
     #Extra 1
     await client.change_presence(game=discord.Game(name='~about | https://discord.gg/p5wBxQS '))
     
- 
+client.remove_command("help")
+client.remove_command("HelpFormatter")
+
+@client.command(pass_context = True)
+async def help(ctx):
+    embed = discord.Embed(title = "Help", description = ("""
+  help Shows this message.
+  eightball  Talk to the bot!
+  inviteme Invite the bot to your server!
+  servers Show what servers DankBot is in.
+  dm  Dm a user (Bot owner only)
+  em  Make a embed message!
+  getbans Get the bans of the current server
+  about About me! :D 
+  prefix My Prefix!
+  owner DankBot's Owners
+  clear Clear messages!
+  meme      Random Memes
+  stream    Sets the streaming status with the specified name
+  
+  + DankBot is now 24/7! :D
+  
+  Any Issues with DankBot? Contact `Squazy#6883` Or `Heads#1424`
+  partners"""), color = 0xFF0000)
+    return await client.say(embed = embed) 
+
+@client.command(pass_context = True, aliases=['sinfo', 'si'])
+async def serverinfo(ctx):
+
+        server = ctx.message.server
+        roles = [x.name for x in server.role_hierarchy]
+        role_length = len(roles)
+        roles = ', '.join(roles);
+        channels = len(server.channels);
+        time = str(server.created_at); time = time.split(' '); time= time[0];
+
+        embed = discord.Embed(description= "Info on this server",title = ':thinking:', colour = {Use your own colour});
+        embed.set_thumbnail(url = server.icon_url);
+        embed.add_field(name = '__Server __', value = str(server))
+        embed.add_field(name = '__Server ID__', value = str(server.id))
+        embed.add_field(name = '__Owner__', value = str(server.owner));
+        embed.add_field(name = '__Owner ID__', value = server.owner.id)
+        embed.add_field(name = '__Members__', value = str(server.member_count));
+        embed.add_field(name = '__Text/Voice Channels__', value = str(channels));
+        embed.add_field(name = '__Roles__', value = '%s'%str(role_length));
+        embed.add_field(name = '__Server Region__', value = '%s'%str(server.region));
+        embed.add_field(name = '__AFK Timeout__', value = server.afk_timeout +'seconds');
+        embed.add_field(name = '__AFK Channel__', value = server.afk_channel);
+        embed.add_field(name = '__Verification Level__', value = server.verification_level)
+        embed.add_field(name = '__Created on__', value = server.created_at.__format__('Date - %d %B %Y at time - %H:%M:%S'));
+        
+        return await client.say(embed = embed);
+
 @client.command(pass_context = True, aliases=['8ball'])
 async def eightball(ctx):
     result = [' nah m8, It is certain', ' As I see it, yes', ' Reply hazy try again', ' Dont count on it', ' It is decidedly so', ' Most likely', ' Ask again later', ' My reply is no', ' Without a doubt', ' Outlook good',' Better not tell you now',' My sources say no',' Yes definitely',' Yes',' Cannot predict now',' Outlook not so good',' You may rely on it',' Signs point to yes',' Concentrate and ask again',' Very doubtful']
@@ -39,7 +91,8 @@ async def eightball(ctx):
 async def inviteme(ctx):
     embed = discord.Embed(title = "Invite DankBot", description = ("""
 ***Hello there my name is*** `Dank Bot` as you all know there are some bot users in discord, one of those is me. 
-I'm made by Squazy#6883 and nightcwre#1424
+I'm made by Squazy#6883 and Heads#1424
++ DankBot is now 24/7! :D
 Invite me here: https://discordapp.com/api/oauth2/authorize?client_id=373477442079162369&scope=bot&permissions=1
 """), color = 0xFF0000)
     return await client.say(embed = embed)   
@@ -102,7 +155,7 @@ Sooo Here are sum of mah commands:
 
 - ***~info*** `[Gives you all info available about Dank Bot]`
 
-- ***~owner*** `Squazy#6883 is the founder of DankBot`
+- ***~owner*** `Squazy#6883 and Heads#1424 is the founders of DankBot`
 
 - ***~invite*** `[ Gives you an invite of a partnered bot ( super useful) ]`
 
@@ -110,10 +163,10 @@ Sooo Here are sum of mah commands:
 
 - ***~suggest*** `[This commands needs Squazy#6883 after you wrote your suggestion so the bot can translate it and send it to his owner. ]`
 
-If you would like any help plz contact `@Squazy#6883 or nightcwre#1424`
+If you would like any help plz contact `@Squazy#6883 or Heads#1424`
 Me `Dank Bot` will be able to contact you as soon as possible!
 
-This bot was coded but the one and only one`@Squazy#6883` And nightcwre#1424 if you see this please add me ;
+This bot was coded but the one and only one`@Squazy#6883` And `Heads#1424`
 Thx for your time i hope you enjoy my helpful bot!"""), color = 0xFF0000)
     return await client.say(embed = embed)
 
@@ -135,7 +188,7 @@ async def prefix(ctx):
 async def owner(ctx):
     embed = discord.Embed(title = "DankBot's Founder ", description = ("""Beep boop beep oh hi there! I was playing with my new computer anyways. I seen you wanted to know my founder? Okay!
     
-    My founder is the one and only `Squazy#6883 and nightcwre#1424` :smile:"""), color = 0xFF0000)
+    My founder is the one and only `Squazy#6883 and Heads#1424` :smile:"""), color = 0xFF0000)
     return await client.say(embed = embed)
   
 @client.command(pass_context=True)       
