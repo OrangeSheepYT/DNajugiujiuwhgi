@@ -63,31 +63,72 @@ async def on_message(message):
     if message.content.startswith('hello'):
         msg = 'Hello {0.author.mention}! How are you today?'.format(message)
         await client.send_message(message.channel, msg)
-       
+
+@client.event
+async def on_message(message):
+    # we do not want the bot to reply to itself
+    if message.author == client.user:
+        return        
+        
     if message.content.startswith('Hello'):
         msg = 'Hello {0.author.mention}! How are you today?'.format(message)
         await client.send_message(message.channel, msg)
+        
+@client.event
+async def on_message(message):
+    # we do not want the bot to reply to itself
+    if message.author == client.user:
+        return
 
             if message.content.startswith('good'):
         msg = 'Great!'.format(message)
         await client.send_message(message.channel, msg)
         
+@client.event
+async def on_message(message):
+    # we do not want the bot to reply to itself
+    if message.author == client.user:
+        return
         
             if message.content.startswith('Good'):
         msg = 'Great!'.format(message)
         await client.send_message(message.channel, msg)
+
+@client.event
+async def on_message(message):
+    # we do not want the bot to reply to itself
+    if message.author == client.user:
+        return        
         
             if message.content.startswith('I\'m Good'):
         msg = 'Great!'.format(message)
         await client.send_message(message.channel, msg)
               
+@client.event
+async def on_message(message):
+    # we do not want the bot to reply to itself
+    if message.author == client.user:
+        return              
+                
             if message.content.startswith('i\'m Good'):
         msg = 'Great!'.format(message)
         await client.send_message(message.channel, msg)
-                                          
+
+@client.event
+async def on_message(message):
+    # we do not want the bot to reply to itself
+    if message.author == client.user:
+        return        
+        
             if message.content.startswith('Im Good'):
         msg = 'Great!'.format(message)
         await client.send_message(message.channel, msg)
+        
+ @client.event
+async def on_message(message):
+    # we do not want the bot to reply to itself
+    if message.author == client.user:
+        return       
 
              if message.content.startswith('im Good'):
         msg = 'Great!'.format(message)
