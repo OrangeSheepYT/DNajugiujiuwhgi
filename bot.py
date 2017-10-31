@@ -56,7 +56,6 @@ async def help(ctx):
 
 @client.command(pass_context = True, aliases=['sinfo', 'si'])
 async def serverinfo(ctx):
-
         server = ctx.message.server
         roles = [x.name for x in server.role_hierarchy]
         role_length = len(roles)
@@ -64,7 +63,7 @@ async def serverinfo(ctx):
         channels = len(server.channels);
         time = str(server.created_at); time = time.split(' '); time= time[0];
 
-        embed = discord.Embed(description= "Info on this server",title = ':thinking:', colour = {Use your own colour});
+        embed = discord.Embed(description= "Info on this server",title = ':thinking:', colour = {0xFF0000});
         embed.set_thumbnail(url = server.icon_url);
         embed.add_field(name = '__Server __', value = str(server))
         embed.add_field(name = '__Server ID__', value = str(server.id))
