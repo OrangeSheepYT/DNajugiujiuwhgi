@@ -33,7 +33,7 @@ client.remove_command("HelpFormatter")
 
 @client.command(pass_context = True)
 async def help(ctx):
-    embed = discord.Embed(title = "Help", description = ("""
+    embed = discord.Embed(title = "<374199081712746507:dank:> Help <374199081712746507:dank:> ", description = ("""
   help Shows this message.
   eightball  Talk to the bot!
   inviteme Invite the bot to your server!
@@ -54,31 +54,6 @@ async def help(ctx):
   partners"""), color = 0xFF0000)
     return await client.say(embed = embed) 
 
-@client.command(pass_context = True, aliases=['sinfo', 'si'])
-async def serverinfo(ctx):
-        server = ctx.message.server
-        roles = [x.name for x in server.role_hierarchy]
-        role_length = len(roles)
-        roles = ', '.join(roles);
-        channels = len(server.channels);
-        time = str(server.created_at); time = time.split(' '); time= time[0];
-
-        embed = discord.Embed(description= "Info on this server",title = ':thinking:', colour = {0xFF0000});
-        embed.set_thumbnail(url = server.icon_url);
-        embed.add_field(name = '__Server __', value = str(server))
-        embed.add_field(name = '__Server ID__', value = str(server.id))
-        embed.add_field(name = '__Owner__', value = str(server.owner));
-        embed.add_field(name = '__Owner ID__', value = server.owner.id)
-        embed.add_field(name = '__Members__', value = str(server.member_count));
-        embed.add_field(name = '__Text/Voice Channels__', value = str(channels));
-        embed.add_field(name = '__Roles__', value = '%s'%str(role_length));
-        embed.add_field(name = '__Server Region__', value = '%s'%str(server.region));
-        embed.add_field(name = '__AFK Timeout__', value = server.afk_timeout +'seconds');
-        embed.add_field(name = '__AFK Channel__', value = server.afk_channel);
-        embed.add_field(name = '__Verification Level__', value = server.verification_level)
-        embed.add_field(name = '__Created on__', value = server.created_at.__format__('Date - %d %B %Y at time - %H:%M:%S'));
-        
-        return await client.say(embed = embed);
 
 @client.command(pass_context = True, aliases=['8ball'])
 async def eightball(ctx):
