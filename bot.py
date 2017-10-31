@@ -34,27 +34,65 @@ client.remove_command("HelpFormatter")
 @client.command(pass_context = True)
 async def help(ctx):
     embed = discord.Embed(title = "<:dank:374199081712746507> Help <:dank:374199081712746507> ", description = ("""
-  help Shows this message.
-  eightball  Talk to the bot!
-  inviteme Invite the bot to your server!
-  servers Show what servers DankBot is in.
-  dm  Dm a user (Bot owner only)
-  em  Make a embed message!
-  getbans Get the bans of the current server
-  about About me! :D 
-  prefix My Prefix!
-  owner DankBot's Owners
-  clear Clear messages!
-  meme      Random Memes
-  stream    Sets the streaming status with the specified name
-  
+  ---------|
+  help     |  Shows this message.
+  eightball|  Talk to the bot!
+  inviteme |  Invite the bot to your server!
+  servers  |  Show what servers DankBot is in.
+  dm       |  Dm a user (Bot owner only)
+  em       |  Make a embed message!
+  getbans  |  Get the bans of the current server
+  about    |  About me! :D 
+  prefix   |  My Prefix!
+  owner    |  DankBot's Owners
+  clear    |  Clear messages!
+  meme     |  Random Memes
+  stream   |  Sets the streaming status with the specified name
+  ---------|
   + DankBot is now 24/7! :D
   
-  Any Issues with DankBot? Contact `Squazy#6883` Or `Heads#1424`
-  partners"""), color = 0xFF0000)
-    return await client.say(embed = embed) 
+  Any Issues with DankBot? Contact `Squazy#6883` Or `Heads#1424`"""), color = 0xFF0000)
+    return await client.say(embed = embed)
 
+@client.event
+async def on_message(message):
+    # we do not want the bot to reply to itself
+    if message.author == client.user:
+        return
 
+    if message.content.startswith('hello'):
+        msg = 'Hello {0.author.mention}! How are you today?'.format(message)
+        await client.send_message(message.channel, msg)
+       
+    if message.content.startswith('Hello'):
+        msg = 'Hello {0.author.mention}! How are you today?'.format(message)
+        await client.send_message(message.channel, msg)
+
+            if message.content.startswith('good'):
+        msg = 'Great!'.format(message)
+        await client.send_message(message.channel, msg)
+        
+        
+            if message.content.startswith('Good'):
+        msg = 'Great!'.format(message)
+        await client.send_message(message.channel, msg)
+        
+            if message.content.startswith('I'm Good'):
+        msg = 'Great!'.format(message)
+        await client.send_message(message.channel, msg)
+              
+            if message.content.startswith('i'm Good'):
+        msg = 'Great!'.format(message)
+        await client.send_message(message.channel, msg)
+                                          
+            if message.content.startswith('Im Good'):
+        msg = 'Great!'.format(message)
+        await client.send_message(message.channel, msg)
+
+             if message.content.startswith('im Good'):
+        msg = 'Great!'.format(message)
+        await client.send_message(message.channel, msg)
+        
 @client.command(pass_context = True, aliases=['8ball'])
 async def eightball(ctx):
     result = [' nah m8, It is certain', ' As I see it, yes', ' Reply hazy try again', ' Dont count on it', ' It is decidedly so', ' Most likely', ' Ask again later', ' My reply is no', ' Without a doubt', ' Outlook good',' Better not tell you now',' My sources say no',' Yes definitely',' Yes',' Cannot predict now',' Outlook not so good',' You may rely on it',' Signs point to yes',' Concentrate and ask again',' Very doubtful']
