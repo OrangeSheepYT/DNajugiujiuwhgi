@@ -33,7 +33,7 @@ client.remove_command("HelpFormatter")
 
 @client.command(pass_context = True)
 async def help(ctx):
-    embed = discord.Embed(title = "<374199081712746507:dank:> Help <374199081712746507:dank:> ", description = ("""
+    embed = discord.Embed(title = "<:dank:374199081712746507> Help <:dank:374199081712746507> ", description = ("""
   help Shows this message.
   eightball  Talk to the bot!
   inviteme Invite the bot to your server!
