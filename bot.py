@@ -60,15 +60,6 @@ async def addrole(self, ctx, user: discord.Member, *, role: str):
     else:
             await self.client.say('You need *Manage Roles** for this')
 
-client.remove_command("help")
-client.remove_command("HelpFormatter")
-
-@client.command(pass_context = True)
-async def help(ctx):
-    embed = discord.Embed(title = "Help", description = ("""
-Coming Soon."""), color = 0xFF0000)
-    return await client.say(embed = embed)      
-
 @client.command(pass_context = True)
 async def servers(ctx):
     x = '\n'.join([str(server) for server in client.servers])
