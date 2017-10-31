@@ -77,11 +77,11 @@ async def on_message(message):
         msg = 'Great!'.format(message)
         await client.send_message(message.channel, msg)
         
-            if message.content.startswith('I'm Good'):
+            if message.content.startswith('I\'m Good'):
         msg = 'Great!'.format(message)
         await client.send_message(message.channel, msg)
               
-            if message.content.startswith('i'm Good'):
+            if message.content.startswith('i\'m Good'):
         msg = 'Great!'.format(message)
         await client.send_message(message.channel, msg)
                                           
